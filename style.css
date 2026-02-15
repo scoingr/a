@@ -122,3 +122,119 @@ h1 { font-family: 'Orbitron'; color: var(--neon-cyan); text-align: center; borde
 .rarity-EPIC { border-color: #bd00ff; box-shadow: 0 0 20px rgba(189,0,255,0.3); }
 .rarity-LEGEND { border-color: #fa0; box-shadow: 0 0 30px rgba(255,170,0,0.4); }
 .rarity-MYTHIC { border-color: #f05; box-shadow: 0 0 40px rgba(255,0,85,0.5); }
+/* --- CSS HIỆU ỨNG CÔNG NGHỆ LED NEON --- */
+
+/* 1. Style cho tiêu đề "HÃY THỔI NẾN SAU 5s..." */
+.neon-tech-heading {
+    font-family: 'Orbitron', sans-serif; /* Font công nghệ */
+    font-weight: 700;
+    font-size: 2em; /* Điều chỉnh kích thước tùy ý */
+    color: #ffffff;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    margin-bottom: 20px;
+
+    /* Hiệu ứng bóng LED Neon màu Xanh Cyan (Có thể đổi màu #0ff thành màu khác) */
+    text-shadow:
+        0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 20px #0ff,
+        0 0 40px #0ff,
+        0 0 80px #0ff;
+
+    /* Animation nhấp nháy nhẹ kiểu điện tử */
+    animation: neon-flicker 2s infinite alternate;
+}
+
+/* Animation nhấp nháy cho text */
+@keyframes neon-flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        text-shadow:
+        0 0 4px #fff,
+        0 0 10px #fff,
+        0 0 18px #0ff,
+        0 0 38px #0ff,
+        0 0 73px #0ff;
+        opacity: 1;
+    }
+    20%, 24%, 55% {
+        text-shadow: none;
+        opacity: 0.8;
+    }
+}
+
+
+/* 2. Style cho nút "XÁC NHẬN ĐÃ THỔI" với khung LED chạy */
+.neon-tech-button {
+    position: relative;
+    padding: 16px 35px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #0ff; /* Màu chữ Cyan */
+    background: rgba(0, 0, 0, 0.8); /* Nền tối bán trong suốt */
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    outline: none;
+    overflow: hidden; /* Quan trọng để che phần viền thừa */
+    transition: 0.3s;
+    margin-top: 20px;
+    /* Tạo khung bo góc nhẹ nếu muốn */
+    /* border-radius: 8px; */
+}
+
+/* Lớp span chứa text để đảm bảo nó nằm trên hiệu ứng viền */
+.neon-tech-button span {
+    position: relative;
+    z-index: 2;
+    /* Bóng neon nhẹ cho text bên trong nút */
+    text-shadow: 0 0 8px rgba(0, 255, 255, 0.7);
+}
+
+/* Tạo hiệu ứng khung viền sáng chạy */
+.neon-tech-button::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: conic-gradient(
+        transparent,
+        rgba(0, 255, 255, 0.1),
+        rgba(0, 255, 255, 0.8), /* Điểm sáng nhất của viền */
+        rgba(0, 255, 255, 0.1),
+        transparent 40%
+    );
+    animation: rotate-border 3s linear infinite; /* Tốc độ chạy của viền */
+    z-index: 0;
+}
+
+/* Lớp nền đen bên trong để che phần giữa, chỉ lộ viền */
+.neon-tech-button::after {
+    content: '';
+    position: absolute;
+    /* Độ dày của viền (thay đổi số px để viền dày/mỏng hơn) */
+    inset: 3px;
+    background: #0a0a0a; /* Màu nền nút bên trong viền */
+    z-index: 1;
+    /* Nếu nút có border-radius thì cái này cũng cần */
+    /* border-radius: 6px; */
+}
+
+/* Animation xoay tròn tạo hiệu ứng chạy */
+@keyframes rotate-border {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Hiệu ứng khi di chuột vào nút */
+.neon-tech-button:hover {
+    box-shadow: 0 0 30px #0ff, inset 0 0 20px #0ff;
+}
+.neon-tech-button:hover span{
+     color: #ffffff;
+     text-shadow: 0 0 15px #0ff;
+}
