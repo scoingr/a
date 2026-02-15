@@ -11,12 +11,12 @@
     "wishing": "lotties/uoc.json"
   },
   "letter": {
-    "title": "THÔNG ĐIỆP HỆ THỐNG 💌",
+    "title": "GỬI EM - CÔ GÁI ĐẶC BIỆT 💌",
     "content": [
-      "Chúc mừng sinh nhật VK 🎉",
-      "Chúc vk tuổi mới rực rỡ, xinh đẹp và thành công!",
-      "Ck đã lưu lại những điều ước của bạn và gửi tới mini game này.",
-      "Ck sẽ cùng vk đạt được những ước mơ đấy, yêu vk !!!"
+      "Chúc mừng sinh nhật em – cô gái đặc biệt nhất trong lòng anh 🎉",
+      "Hôm nay là ngày thế giới có thêm một thiên thần nhỏ, và cũng là ngày anh thầm cảm ơn cuộc đời vì đã cho anh gặp được em. Dù mình chưa chính thức là vợ chồng, nhưng trong trái tim anh, em luôn là người anh muốn cùng đi thật lâu, thật xa. Cảm ơn em vì đã xuất hiện, vì đã mang đến cho anh cảm giác ấm áp, bình yên và cả động lực để cố gắng mỗi ngày.",
+      "Tuổi mới, anh không chỉ chúc em xinh đẹp hơn, mà còn mạnh mẽ hơn, tự tin hơn và luôn tin vào giá trị của chính mình. Dù phía trước còn nhiều thử thách, anh mong em sẽ luôn giữ được nụ cười rạng rỡ ấy. Nếu em mệt, anh sẽ là chỗ dựa. Nếu em buồn, anh sẽ là người lắng nghe. Nếu em muốn chinh phục ước mơ, anh sẽ đứng phía sau cổ vũ em hết mình.",
+      "Chúc em một tuổi mới tràn đầy yêu thương, may mắn và thật nhiều thành công. Và hy vọng rằng, những năm tháng sau này, anh vẫn được ở bên em trong mỗi dịp sinh nhật – không chỉ với tư cách người yêu, mà là người đồng hành cả đời. ❤️"
     ]
   },
   "gift_pool": [
@@ -31,4 +31,5 @@
     { "id": 9, "name": "Bó Hoa Tiền", "value": "100.000.000 VNĐ", "rarity": "MYTHIC", "json_file": "lotties/gift9.json", "vip": 9 },
     { "id": 10, "name": "Hộ Quà HPBD", "value": "VÔ GIÁ", "rarity": "MYTHIC", "json_file": "lotties/gift10.json", "vip": 9 }
   ]
+
 }
