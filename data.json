@@ -1,0 +1,34 @@
+{
+  "system": {
+    "title": "CHÚC MỪNG SINH NHẬT VK",
+    "subtitle": "LEGENDARY VIP",
+    "music_url": "music.mp3"
+  },
+  "visuals": {
+    "cake_center": "lotties/cake.json",
+    "touch_hint": "lotties/touch.json",
+    "candle": "lotties/candle.json",
+    "wishing": "lotties/uoc.json"
+  },
+  "letter": {
+    "title": "THÔNG ĐIỆP HỆ THỐNG 💌",
+    "content": [
+      "Chúc mừng sinh nhật VK 🎉",
+      "Chúc vk tuổi mới rực rỡ, xinh đẹp và thành công!",
+      "Ck đã lưu lại những điều ước của bạn và gửi tới mini game này.",
+      "Ck sẽ cùng vk đạt được những ước mơ đấy, yêu vk !!!"
+    ]
+  },
+  "gift_pool": [
+    { "id": 1, "name": "Đá Quý Bảy Màu", "value": "500.000.000 VNĐ", "rarity": "COMMON", "json_file": "lotties/gift1.json", "vip": 9 },
+    { "id": 2, "name": "Bút Ghi Nhớ", "value": "20.000.000 VNĐ", "rarity": "COMMON", "json_file": "lotties/gift2.json", "vip": 9 },
+    { "id": 3, "name": "Cây Tiền Tài Lộc", "value": "200.000.000 VNĐ", "rarity": "RARE", "json_file": "lotties/gift3.json", "vip": 9 },
+    { "id": 4, "name": "Lâu Đài Mơ Ước", "value": "50 TỶ VNĐ", "rarity": "RARE", "json_file": "lotties/gift4.json", "vip": 9 },
+    { "id": 5, "name": "Cup Vàng Hệ Thống", "value": "75.000.000 VNĐ", "rarity": "EPIC", "json_file": "lotties/gift5.json", "vip": 9 },
+    { "id": 6, "name": "Đèn Thần", "value": "90.000.000 VNĐ", "rarity": "EPIC", "json_file": "lotties/gift6.json", "vip": 9 },
+    { "id": 7, "name": "Máy Phát Tâm Tư", "value": "35.000.000 VNĐ", "rarity": "LEGEND", "json_file": "lotties/gift7.json", "vip": 9 },
+    { "id": 8, "name": "Ngọn Đuốc Ước Mơ", "value": "60.000.000 VNĐ", "rarity": "LEGEND", "json_file": "lotties/gift8.json", "vip": 9 },
+    { "id": 9, "name": "Bó Hoa Tiền", "value": "100.000.000 VNĐ", "rarity": "MYTHIC", "json_file": "lotties/gift9.json", "vip": 9 },
+    { "id": 10, "name": "Hộ Quà HPBD", "value": "VÔ GIÁ", "rarity": "MYTHIC", "json_file": "lotties/gift10.json", "vip": 9 }
+  ]
+}

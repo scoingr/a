@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>VIP BIRTHDAY LEGEND</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@600&family=Cinzel:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <audio id="bg-music" loop></audio>
+
+    <div class="mobile-wrapper">
+
+        <div id="screen-start" class="screen active center-content">
+            <div class="start-wrapper">
+                <h1 class="royal-title">SYSTEM LOADING...</h1>
+                <div class="subtitle">VIP ACCESS</div>
+                <div class="scanner-container">
+                    <div class="scan-line"></div>
+                    <i class="fas fa-fingerprint fingerprint-icon"></i>
+                </div>
+                <div id="scan-msg" class="scan-text">SẴN SÀNG KÍCH HOẠT</div>
+                
+                <button id="btn-start-scan" class="tech-btn" onclick="runScanner()">BẮT ĐẦU QUÉT</button>
+                <button id="btn-enter-system" class="tech-btn btn-gold" style="display: none; animation: pulseBtn 1s infinite;" onclick="enterSystem()">TRUY CẬP HỆ THỐNG</button>
+            </div>
+        </div>
+
+        <div id="screen-setup" class="screen center-content">
+            <div class="setup-wrapper">
+                <h1>THIẾT LẬP HỒ SƠ</h1>
+                <div class="section-box no-bg">
+                    <input type="text" id="inp-name" class="tech-input" placeholder="Tên hiển thị...">
+                    <input type="text" id="inp-slogan" class="tech-input" placeholder="Slogan...">
+                    <div style="color:var(--neon-cyan); margin-bottom:5px;">Ngày Sinh:</div>
+                    <input type="date" id="inp-dob" class="tech-input">
+                    <label class="file-upload">
+                        <i class="fas fa-camera"></i> Tải Ảnh Đại Diện
+                        <input type="file" id="inp-photo" accept="image/*" hidden>
+                    </label>
+                    <button class="tech-btn" onclick="finishSetup()">XÁC NHẬN</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="screen-game" class="screen">
+            <h1 class="royal-header">SINH NHẬT VÂN ANH</h1>
+
+            <div class="section-box rgb-border">
+                <div class="section-title"><i class="fas fa-id-badge"></i> THẺ ĐỊNH DANH</div>
+                <div class="profile-card">
+                    <div class="avatar-container">
+                        <img src="https://via.placeholder.com/80" class="avatar" id="avatar-img">
+                    </div>
+                    <div class="profile-info">
+                        <div id="display-name" class="user-name">VIP USER</div>
+                        <div id="display-dob" class="user-dob">01/01/2000</div>
+                        <div class="vip-badge">VIP MEMBER</div>
+                    </div>
+                </div>
+                <div id="display-slogan" class="user-slogan-display">"..."</div>
+                <div class="gift-icons-row" id="gift-icons-row"></div>
+            </div>
+
+            <div class="special-anim-box rgb-border">
+                <lottie-player id="lottie-cake-center" background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay></lottie-player>
+            </div>
+
+            <div class="section-box rgb-border">
+                <div class="section-title"><i class="fas fa-star"></i> GỬI ĐIỀU ƯỚC</div>
+                <div id="wish-group">
+                    <input type="text" class="tech-input" id="wish1" placeholder="Điều ước 1...">
+                    <input type="text" class="tech-input" id="wish2" placeholder="Điều ước 2...">
+                    <input type="text" class="tech-input" id="wish3" placeholder="Điều ước 3...">
+                    <button class="tech-btn" onclick="sendWishes()">GỬI LÊN HỆ THỐNG</button>
+                </div>
+                <div id="wish-locked" style="display:none" class="neon-text">ĐIỀU ƯỚC ĐÃ ĐƯỢC GHI NHẬN</div>
+            </div>
+
+            <div class="section-box rgb-border" style="text-align: center;">
+                <div class="section-title">🎁 KHO BÁU HOÀNG GIA</div>
+                <p id="gift-status-text" style="color:#888; font-size:0.8rem; margin-bottom:5px;">Hoàn thành điều ước để mở khóa</p>
+                <button class="tech-btn btn-gold" onclick="openGiftShop()">MỞ KHO QUÀ</button>
+            </div>
+
+            <div class="section-box transparent-box">
+                <div class="section-title center-text">▼ NGHI THỨC CHÍNH ▼</div>
+                <div class="mega-cake-frame" onclick="interactWithCandle()">
+                    <lottie-player id="lottie-touch" background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay></lottie-player>
+                    <div class="click-hint">CHẠM ĐỂ THẮP NẾN</div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <button class="footer-btn">HỖ TRỢ</button>
+                <button class="footer-btn" onclick="location.reload()">ĐĂNG XUẤT</button>
+            </div>
+            <div style="height:80px"></div>
+        </div>
+
+    </div> <div id="overlay-gift-shop" class="gift-modal">
+        <div class="shop-header">
+            <h2>KHO BÁU</h2>
+            <p id="shop-counter">Đã chọn: 0/3</p>
+        </div>
+        <div class="shop-container" id="shop-container"></div>
+        <div class="shop-footer">
+            <button class="tech-btn" onclick="closeGiftShop()">ĐÓNG</button>
+            <button id="btn-claim-gift" class="tech-btn btn-gold" onclick="confirmGifts()">NHẬN QUÀ</button>
+        </div>
+    </div>
+
+    <div id="overlay-single-gift" class="overlay" onclick="this.style.display='none'">
+        <div id="single-gift-container" style="pointer-events: none;"></div>
+        <div style="margin-top: 20px; color: #fff; animation: blink 1s infinite;">CHẠM ĐỂ ĐÓNG</div>
+    </div>
+
+    <div id="overlay-wishing" class="overlay">
+        <h2 style="color: var(--neon-cyan); text-align: center;">ĐANG GỬI ĐIỀU ƯỚC...</h2>
+        <div style="width: 100%; height: 60vh; display: flex; justify-content: center; align-items: center;">
+            <lottie-player id="lottie-uoc" background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay></lottie-player>
+        </div>
+    </div>
+
+    <div id="overlay-candle" class="overlay" style="justify-content: flex-start; padding-top: 15%;">
+        <h2 class="led-instruction">HÃY THỔI NẾN SAU 5s...</h2>
+        <div id="timer" class="timer-text">5</div>
+        <div class="candle-anim-box">
+             <lottie-player id="lottie-candle" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></lottie-player>
+        </div>
+        <button id="btn-confirm-blow" class="tech-btn btn-gold" style="display:none; margin-top: 20px;" onclick="finishBlowCandle()">XÁC NHẬN ĐÃ THỔI</button>
+    </div>
+
+    <div id="overlay-letter" class="overlay">
+        <div class="letter-content">
+            <h2 id="letter-title">...</h2>
+            <div id="letter-body" class="letter-body-text"></div>
+            <button class="tech-btn" onclick="closeLetter()">ĐÃ ĐỌC & HOÀN TẤT</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
