@@ -30,7 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
 function initUI() {
     if(gameData.system) document.getElementById('bg-music').src = gameData.system.music_url;
     
-    // Load Animations (Kiểm tra element trước khi load)
     if(gameData.visuals) {
         const cakeCenter = document.getElementById('lottie-cake-center');
         if(cakeCenter) cakeCenter.load(gameData.visuals.cake_center);
@@ -69,7 +68,6 @@ function finishSetup() {
     const dob = document.getElementById('inp-dob').value || "01/01/2000";
     const file = document.getElementById('inp-photo').files[0];
 
-    // FIX LỖI NULL: Đảm bảo phần tử tồn tại trước khi gán
     const nameEl = document.getElementById('display-name');
     if(nameEl) nameEl.innerText = name;
     
@@ -111,9 +109,15 @@ function openGiftShop() {
     if(!wishesCompleted) return alert("Vui lòng gửi điều ước trước!");
     document.getElementById('overlay-gift-shop').style.display = 'flex';
     renderGiftList();
+    
+    // Reset footer status
+    const footer = document.querySelector('.shop-footer');
     if(giftsClaimed) {
+        footer.style.display = 'flex';
         const btn = document.getElementById('btn-claim-gift');
         btn.innerText = "CHỈ XEM"; btn.classList.add('btn-disabled');
+    } else {
+        footer.style.display = 'none'; // Ẩn mặc định để ngắm
     }
 }
 function closeGiftShop() { document.getElementById('overlay-gift-shop').style.display = 'none'; }
@@ -153,6 +157,7 @@ function createCardHTML(gift) {
 
 function toggleGift(id) {
     if(giftsClaimed) return;
+    
     if(selectedGifts.includes(id)) {
         selectedGifts = selectedGifts.filter(g => g !== id);
         document.getElementById(`card-${id}`).classList.remove('selected');
@@ -162,6 +167,14 @@ function toggleGift(id) {
         document.getElementById(`card-${id}`).classList.add('selected');
     }
     document.getElementById('shop-counter').innerText = `Đã chọn: ${selectedGifts.length}/3`;
+
+    // Logic ẩn hiện Footer
+    const footer = document.querySelector('.shop-footer');
+    if(selectedGifts.length > 0) {
+        footer.style.display = 'flex';
+    } else {
+        footer.style.display = 'none';
+    }
 }
 
 function confirmGifts() {
@@ -181,6 +194,7 @@ function confirmGifts() {
         icon.onclick = () => showSingleGift(gift);
         row.appendChild(icon);
     });
+    alert("Đã nhận quà vào hồ sơ!");
 }
 
 function showSingleGift(gift) {
