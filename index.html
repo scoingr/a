@@ -4,17 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>VIP BIRTHDAY LEGEND</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@600&family=Cinzel:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@600&family=Cinzel:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
     <audio id="bg-music" loop></audio>
 
     <div class="mobile-wrapper">
-
         <div id="screen-start" class="screen active center-content">
             <div class="start-wrapper">
                 <h1 class="royal-title">SYSTEM LOADING...</h1>
@@ -24,7 +22,6 @@
                     <i class="fas fa-fingerprint fingerprint-icon"></i>
                 </div>
                 <div id="scan-msg" class="scan-text">SẴN SÀNG KÍCH HOẠT</div>
-                
                 <button id="btn-start-scan" class="tech-btn" onclick="runScanner()">BẮT ĐẦU QUÉT</button>
                 <button id="btn-enter-system" class="tech-btn btn-gold" style="display: none; animation: pulseBtn 1s infinite;" onclick="enterSystem()">TRUY CẬP HỆ THỐNG</button>
             </div>
@@ -101,8 +98,9 @@
             </div>
             <div style="height:80px"></div>
         </div>
+    </div>
 
-    </div> <div id="overlay-gift-shop" class="gift-modal">
+    <div id="overlay-gift-shop" class="gift-modal">
         <div class="shop-header">
             <h2>KHO BÁU</h2>
             <p id="shop-counter">Đã chọn: 0/3</p>
@@ -120,24 +118,18 @@
     </div>
 
     <div id="overlay-wishing" class="overlay">
-        
         <h2 class="neon-tech-heading">ĐANG GỬI ĐIỀU ƯỚC...</h2>
-        
         <div style="width: 100%; height: 60vh; display: flex; justify-content: center; align-items: center;">
             <lottie-player id="lottie-uoc" background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay></lottie-player>
         </div>
     </div>
 
     <div id="overlay-candle" class="overlay" style="justify-content: center; padding-top: 5%;">
-        
         <h2 class="neon-tech-heading" style="margin-bottom: 10px;">HÃY THỔI NẾN SAU 5s...</h2>
-        
         <div id="timer" class="timer-text" style="font-family: 'Orbitron'; color: var(--neon-gold); font-size: 4rem; text-shadow: 0 0 20px var(--neon-gold);">5</div>
-
         <div class="candle-anim-box" style="margin: 20px 0;">
              <lottie-player id="lottie-candle" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></lottie-player>
         </div>
-
         <button id="btn-confirm-blow" class="neon-tech-button" style="display:none;" onclick="finishBlowCandle()">
             <span>XÁC NHẬN ĐÃ THỔI</span>
         </button>
